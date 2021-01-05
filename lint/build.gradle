@@ -16,6 +16,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "com.android.tools.lint:lint-api:$lintVersion"
     implementation "com.android.tools.lint:lint-checks:$lintVersion"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 }
 
 jar {
