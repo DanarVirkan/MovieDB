@@ -1,3 +1,4 @@
+include ':lint'
 include ':bookmarked'
 include ':core'
 include ':app'
