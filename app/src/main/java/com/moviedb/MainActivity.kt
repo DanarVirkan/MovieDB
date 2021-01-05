@@ -14,6 +14,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.navMenu.setOnNavigationItemReselectedListener {
+            return@setOnNavigationItemReselectedListener
+        }
+
         val controller = findNavController(R.id.nav_frame)
         binding.navMenu.setupWithNavController(controller)
     }

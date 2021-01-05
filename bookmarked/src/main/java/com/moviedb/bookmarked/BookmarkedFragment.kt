@@ -121,7 +121,7 @@ class BookmarkedFragment : Fragment() {
             filterDialog.show()
         }
         binding.removeAll.setOnClickListener {
-            val deleteDialog = AlertDialog.Builder(context, R.style.SecondAccent)
+            val deleteDialog = AlertDialog.Builder(context)
             deleteDialog.setMessage(R.string.remove_title)
             deleteDialog.setPositiveButton(R.string.ok) { dialog, _ ->
                 viewModel.deleteAll()
