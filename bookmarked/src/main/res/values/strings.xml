@@ -12,9 +12,9 @@
     <string name="no_data_movie">No bookmarked\nMovies</string>
     <string name="no_data_tv">No bookmarked\nTV Shows</string>
     <string-array name="filter">
+        <item>All</item>
         <item>Movies</item>
         <item>TV Shows</item>
-        <item>All</item>
     </string-array>
     <string name="title_bookmarked">bookmarked</string>
 </resources>
