@@ -1,5 +1,5 @@
 <resources>
-    <string name="title_bookmarked">bookmarked</string>
+    <string name="title_bookmarked" translatable="false">bookmarked</string>
     <string name="dialog_title">Choose Filter</string>
     <string name="remove_bookmark_all">All Bookmark Removed</string>
     <string name="remove_all">Remove All</string>

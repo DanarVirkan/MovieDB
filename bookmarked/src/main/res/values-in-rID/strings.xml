@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dialog_title">Pilih Filter</string>
-    <string name="title_bookmarked">ditandai</string>
     <string name="remove_bookmark_all">Semua Penanda Dihapus</string>
     <string name="remove_all">Hapus Semua</string>
     <string name="remove">HAPUS</string>

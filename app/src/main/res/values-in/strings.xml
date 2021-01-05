@@ -2,8 +2,14 @@
 <resources>
     <string name="net_err">Terjadi Masalah Jaringan</string>
     <string name="refresh">Segarkan</string>
-    <string name="season">%d Musim</string>
-    <string name="episode">%d Episode</string>
+    <plurals name="season">
+        <item quantity="one">%d Musim</item>
+        <item quantity="other">%d Musim</item>
+    </plurals>
+    <plurals name="episode">
+        <item quantity="one">%d Episode</item>
+        <item quantity="other">%d Episode</item>
+    </plurals>
     <string name="app_icon">Ikon Aplikasi</string>
     <string name="settings">Pengaturan</string>
     <string name="about">Tentang</string>
