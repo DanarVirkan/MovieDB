@@ -102,7 +102,7 @@ class BookmarkedFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadKoinModules(bookmarkedModule)
-        filterDialog = AlertDialog.Builder(context, R.style.SecondAccent)
+        filterDialog = AlertDialog.Builder(context)
     }
 
     override fun onStart() {

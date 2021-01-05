@@ -63,6 +63,7 @@
         android:layout_height="70dp"
         android:background="@drawable/progress_bg"
         android:padding="15dp"
+        android:theme="@style/SecondAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
