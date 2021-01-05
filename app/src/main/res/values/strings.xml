@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MovieDB</string>
+    <string name="net_err">A Network Error Occurred</string>
+    <string name="refresh">Refresh</string>
+    <string name="poster">poster</string>
+    <string name="overview">Overview</string>
+    <string name="runtime">%d min</string>
+    <string name="season">%d Seasons</string>
+    <string name="episode">%d Episodes</string>
+    <string name="app_icon">app icon</string>
+    <string name="trending">Trending</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="bookmarked">Bookmarked</string>
+    <string name="trending_title">What\'s Hot</string>
+    <string name="remove_bookmark">Bookmark Removed</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+
+</resources>
