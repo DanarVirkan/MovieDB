@@ -6,12 +6,12 @@
         <Preference
             android:icon="@drawable/language"
             android:key="lang"
-            android:title="Language" />
+            android:title="@string/language" />
 
         <Preference
             android:icon="@drawable/about"
             android:title="@string/about"
-            app:summary="Version 1.0"/>
+            app:summary="@string/version"/>
 
     </PreferenceCategory>
 

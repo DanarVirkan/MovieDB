@@ -45,8 +45,9 @@ android {
 }
 
 dependencies {
+    lintChecks project(':lint')
     implementation project(":core")
-    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.preference:preference-ktx:1.1.1'
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }

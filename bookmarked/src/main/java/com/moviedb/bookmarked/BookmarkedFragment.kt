@@ -46,7 +46,7 @@ class BookmarkedFragment : Fragment() {
                 viewModel.delete(
                     item
                 )
-                Toast.makeText(context, R.string.remove_bookmark, Toast.LENGTH_LONG)
+                Toast.makeText(context, com.moviedb.R.string.remove_bookmark, Toast.LENGTH_LONG)
                     .show()
                 viewModel.setList(selected)
             }

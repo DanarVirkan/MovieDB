@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="net_err">Terjadi Masalah Jaringan</string>
+    <string name="refresh">Segarkan</string>
+    <string name="season">%d Musim</string>
+    <string name="episode">%d Episode</string>
+    <string name="app_icon">Ikon Aplikasi</string>
+    <string name="settings">Pengaturan</string>
+    <string name="about">Tentang</string>
+    <string name="bookmark">Penanda</string>
+    <string name="bookmarked">Ditandai</string>
+    <string name="remove_bookmark">Penanda Dihapus</string>
+    <string name="language">Bahasa</string>
+    <string name="version">Versi 1.0</string>
+</resources>
