@@ -9,7 +9,6 @@ apply from:'../shared_dependencies.gradle'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "30.0.3"
     testOptions.unitTests.includeAndroidResources = true
 
     compileOptions {
@@ -37,10 +36,15 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     dynamicFeatures = [':bookmarked']
 }
 
@@ -48,6 +52,7 @@ dependencies {
     lintChecks project(':lint')
     implementation project(":core")
     implementation 'androidx.preference:preference-ktx:1.1.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }

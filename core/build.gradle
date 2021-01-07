@@ -4,11 +4,19 @@ plugins {
     id 'kotlin-kapt'
 }
 
+apply plugin: 'com.squareup.leakcanary.deobfuscation'
+
+leakCanary {
+    // LeakCanary needs to know which variants have obfuscation turned on
+    filterObfuscatedVariants { variant ->
+        variant.name == "debug"
+    }
+}
+
 apply from: '../shared_dependencies.gradle'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "30.0.3"
 
     defaultConfig {
         minSdkVersion 27
@@ -22,7 +30,11 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -57,4 +69,7 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.3.0-alpha04'
     implementation 'androidx.room:room-ktx:2.3.0-alpha04'
     kapt 'androidx.room:room-compiler:2.3.0-alpha04'
+
+    implementation "net.zetetic:android-database-sqlcipher:4.4.0"
+    implementation "androidx.sqlite:sqlite-ktx:2.1.0"
 }

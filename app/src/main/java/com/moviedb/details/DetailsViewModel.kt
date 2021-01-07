@@ -19,8 +19,8 @@ import kotlinx.coroutines.launch
 class DetailsViewModel(
     private val useCase: UseCase
 ) : ViewModel() {
-    private var movie = MutableLiveData<Movie>()
-    private var tv = MutableLiveData<TV>()
+    private val movie = MutableLiveData<Movie>()
+    private val tv = MutableLiveData<TV>()
 
     fun getData(type: String?, id: Int) {
         when (type) {

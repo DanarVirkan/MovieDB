@@ -28,6 +28,10 @@ class TrendingFragment : Fragment() {
         binding.rvTrending.adapter = adapter
         binding.rvTrending.layoutManager = LinearLayoutManager(context)
 
+        binding.refreshTrending.setOnClickListener {
+            parentFragmentManager.beginTransaction().detach(this).attach(this).commitNow()
+        }
+
         viewModel.getTrending().observe(viewLifecycleOwner, {
             if (it != null) {
                 binding.rvTrending.isVisible = it is Resource.Success

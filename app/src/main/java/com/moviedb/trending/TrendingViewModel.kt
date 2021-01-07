@@ -1,7 +1,6 @@
 package com.moviedb.trending
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.*
 import com.example.core.domain.UseCase
 
 class TrendingViewModel(
