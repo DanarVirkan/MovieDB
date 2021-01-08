@@ -58,7 +58,6 @@ android {
 }
 
 dependencies {
-    lintChecks project(':lint')
     implementation project(":core")
     implementation 'androidx.preference:preference-ktx:1.1.1'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'

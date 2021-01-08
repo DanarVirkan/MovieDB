@@ -75,6 +75,7 @@
         android:paddingHorizontal="20dp"
         android:text="@string/remove_all"
         android:textColor="#FFF"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
