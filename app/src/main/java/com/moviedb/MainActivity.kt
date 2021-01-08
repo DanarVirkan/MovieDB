@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.moviedb.databinding.ActivityMainBinding
 
@@ -18,8 +19,8 @@ class MainActivity : AppCompatActivity() {
             return@setOnNavigationItemReselectedListener
         }
 
-        val controller = findNavController(R.id.nav_frame)
-        binding.navMenu.setupWithNavController(controller)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_frame) as NavHostFragment
+        binding.navMenu.setupWithNavController(navHostFragment.navController)
     }
 
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {

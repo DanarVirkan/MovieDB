@@ -89,8 +89,10 @@ class DetailsActivity : AppCompatActivity() {
             binding.detailGenre.text = it.genre.toGenres()
             binding.detailRating.text = it.vote
             binding.detailOverview.text = it.overview
-            binding.detailSeason.text = resources.getQuantityString(R.plurals.season, it.season)
-            binding.detailEpisode.text = resources.getQuantityString(R.plurals.episode, it.episode)
+            binding.detailSeason.text =
+                resources.getQuantityString(R.plurals.season, it.season, it.season)
+            binding.detailEpisode.text =
+                resources.getQuantityString(R.plurals.episode, it.episode, it.episode)
             loaded = true
         })
 

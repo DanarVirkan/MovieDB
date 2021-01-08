@@ -3,11 +3,9 @@
     <string name="net_err">Terjadi Masalah Jaringan</string>
     <string name="refresh">Segarkan</string>
     <plurals name="season">
-        <item quantity="one">%d Musim</item>
         <item quantity="other">%d Musim</item>
     </plurals>
     <plurals name="episode">
-        <item quantity="one">%d Episode</item>
         <item quantity="other">%d Episode</item>
     </plurals>
     <string name="app_icon">Ikon Aplikasi</string>
