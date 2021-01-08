@@ -16,7 +16,8 @@ class TrendingFragment : Fragment() {
 
     private val viewModel: TrendingViewModel by viewModel()
     private lateinit var adapter: TrendingAdapter
-    private lateinit var binding: FragmentTrendingBinding
+    private var _binding: FragmentTrendingBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,8 +50,14 @@ class TrendingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentTrendingBinding.inflate(inflater, container, false)
+        _binding = FragmentTrendingBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.rvTrending.adapter = null
+        _binding = null
     }
 
 }

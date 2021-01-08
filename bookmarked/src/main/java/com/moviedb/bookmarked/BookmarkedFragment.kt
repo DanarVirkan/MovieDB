@@ -29,7 +29,8 @@ class BookmarkedFragment : Fragment() {
     private lateinit var filterDialog: AlertDialog.Builder
     private lateinit var listItem: List<Item>
     private var selected = 0
-    private lateinit var binding: FragmentBookmarkedBinding
+    private var _binding: FragmentBookmarkedBinding? = null
+    private val binding get() = _binding!!
 
     private val swipeListener: ItemTouchHelper.SimpleCallback =
         object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
@@ -174,7 +175,13 @@ class BookmarkedFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentBookmarkedBinding.inflate(inflater, container, false)
+        _binding = FragmentBookmarkedBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.rvBookmarked.adapter = null
+        _binding = null
     }
 }
