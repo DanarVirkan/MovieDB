@@ -8,7 +8,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.core.data.remote.ApiService.Companion.IMG_URL
@@ -20,6 +19,7 @@ import com.moviedb.R
 import com.moviedb.databinding.ActivityDetailsBinding
 import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.android.viewmodel.ext.android.viewModel
+import www.sanju.motiontoast.MotionToast
 
 @InternalCoroutinesApi
 class DetailsActivity : AppCompatActivity() {
@@ -98,7 +98,14 @@ class DetailsActivity : AppCompatActivity() {
 
         viewModel.getError().observe(this, {
             if (it == true) {
-                Toast.makeText(this, resources.getText(R.string.net_err), Toast.LENGTH_LONG).show()
+                MotionToast.darkColorToast(
+                    this,
+                    getString(R.string.error),
+                    getString(R.string.net_err),
+                    MotionToast.TOAST_NO_INTERNET,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION, null
+                )
                 Handler(Looper.getMainLooper()).postDelayed({
                     finish()
                 }, 1500L)
@@ -126,18 +133,26 @@ class DetailsActivity : AppCompatActivity() {
             if (!booked) {
                 viewModel.updateBookmark(itemDB, true)
                 item.setIcon(R.drawable.bookmarked)
-                Toast.makeText(this, resources.getString(R.string.bookmarked), Toast.LENGTH_LONG)
-                    .show()
+                MotionToast.darkColorToast(
+                    this,
+                    getString(R.string.success),
+                    getString(R.string.bookmarked),
+                    MotionToast.TOAST_SUCCESS,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION, null
+                )
                 booked = true
             } else {
                 viewModel.updateBookmark(itemDB, false)
                 item.setIcon(R.drawable.bookmark)
-                Toast.makeText(
+                MotionToast.darkColorToast(
                     this,
-                    resources.getString(R.string.remove_bookmark),
-                    Toast.LENGTH_LONG
+                    getString(R.string.removed),
+                    getString(R.string.remove_bookmark),
+                    MotionToast.TOAST_DELETE,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION, null
                 )
-                    .show()
                 booked = false
             }
         }

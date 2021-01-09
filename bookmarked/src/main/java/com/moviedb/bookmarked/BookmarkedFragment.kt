@@ -7,7 +7,6 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -22,6 +21,7 @@ import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
+import www.sanju.motiontoast.MotionToast
 
 @InternalCoroutinesApi
 class BookmarkedFragment : Fragment() {
@@ -47,8 +47,14 @@ class BookmarkedFragment : Fragment() {
                 viewModel.delete(
                     item
                 )
-                Toast.makeText(context, com.moviedb.R.string.remove_bookmark, Toast.LENGTH_LONG)
-                    .show()
+                MotionToast.darkColorToast(
+                    requireActivity(),
+                    getString(com.moviedb.R.string.removed),
+                    getString(com.moviedb.R.string.remove_bookmark),
+                    MotionToast.TOAST_DELETE,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION, null
+                )
                 viewModel.setList(selected)
             }
 
@@ -126,7 +132,14 @@ class BookmarkedFragment : Fragment() {
             deleteDialog.setMessage(R.string.remove_title)
             deleteDialog.setPositiveButton(R.string.ok) { dialog, _ ->
                 viewModel.deleteAll()
-                Toast.makeText(context, R.string.remove_bookmark_all, Toast.LENGTH_LONG).show()
+                MotionToast.darkColorToast(
+                    requireActivity(),
+                    getString(com.moviedb.R.string.removed),
+                    getString(R.string.remove_bookmark_all),
+                    MotionToast.TOAST_DELETE,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION, null
+                )
                 dialog.dismiss()
             }
             deleteDialog.setNegativeButton(R.string.cancel) { dialog, _ ->

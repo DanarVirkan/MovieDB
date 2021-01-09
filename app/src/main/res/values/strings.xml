@@ -23,4 +23,7 @@
     <string name="language">Language</string>
     <string name="version">Version 1.0</string>
     <string name="title_bookmarked" translatable="false">bookmarked</string>
+    <string name="removed">Removed</string>
+    <string name="success">Success</string>
+    <string name="error">Connection Error</string>
 </resources>

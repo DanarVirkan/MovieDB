@@ -16,4 +16,7 @@
     <string name="remove_bookmark">Penanda Dihapus</string>
     <string name="language">Bahasa</string>
     <string name="version">Versi 1.0</string>
+    <string name="removed">Dihapus</string>
+    <string name="success">Sukses</string>
+    <string name="error">Koneksi Gagal</string>
 </resources>

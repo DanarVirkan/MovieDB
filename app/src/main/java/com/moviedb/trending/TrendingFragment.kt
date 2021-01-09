@@ -37,6 +37,7 @@ class TrendingFragment : Fragment() {
             if (it != null) {
                 binding.rvTrending.isVisible = it is Resource.Success
                 binding.trendingProgress.isVisible = it is Resource.Loading
+                binding.lottieAnimationView.isVisible = it is Resource.Error
                 binding.errorTrending.isVisible = it is Resource.Error
                 binding.refreshTrending.isVisible = it is Resource.Error
                 if (it is Resource.Success) {
