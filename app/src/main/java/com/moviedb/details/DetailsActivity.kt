@@ -111,7 +111,11 @@ class DetailsActivity : AppCompatActivity() {
                 }, 1500L)
             }
         })
+    }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {

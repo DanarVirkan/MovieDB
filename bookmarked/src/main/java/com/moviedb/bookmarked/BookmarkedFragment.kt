@@ -152,15 +152,13 @@ class BookmarkedFragment : Fragment() {
             if (it.isNotEmpty()) {
                 binding.rvBookmarked.adapter = BookmarkedAdapter(it)
                 binding.rvBookmarked.layoutManager = LinearLayoutManager(context)
-                binding.rvBookmarked.visibility = View.VISIBLE
-                binding.noData.visibility = View.GONE
 
                 val touchHelper = ItemTouchHelper(swipeListener)
                 touchHelper.attachToRecyclerView(binding.rvBookmarked)
-            } else {
-                binding.rvBookmarked.visibility = View.GONE
-                binding.noData.visibility = View.VISIBLE
             }
+            binding.rvBookmarked.isVisible = it.isNotEmpty()
+            binding.noData.isVisible = it.isEmpty()
+            binding.emptyAnimation.isVisible = it.isEmpty()
         })
 
         viewModel.getSelected().observe(viewLifecycleOwner, {

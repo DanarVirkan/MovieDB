@@ -62,8 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/appBarBookmarked"
         app:layout_constraintVertical_bias="0.4"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="emptyBox.json"
-        app:lottie_loop="true" />
+        app:lottie_fileName="emptyBox.json" />
 
     <TextView
         android:id="@+id/no_data"
