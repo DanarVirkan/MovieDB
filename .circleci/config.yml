@@ -2,7 +2,7 @@ version: 2.1
   
 orbs:
   android: circleci/android@0.2.1
-     
+  
 jobs:
   build:
     executor: android/android
@@ -31,7 +31,7 @@ jobs:
           name: Run Tests
           command: ./gradlew lint test
       - store_test_results:
-          path: test-results
+          path: app/build/test-results
       - store_artifacts:  
           path: app/build/outputs/apk/debug/
           destination: artifact-file
