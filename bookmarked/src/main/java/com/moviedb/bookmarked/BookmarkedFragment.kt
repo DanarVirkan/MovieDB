@@ -52,7 +52,7 @@ class BookmarkedFragment : Fragment() {
                     getString(com.moviedb.R.string.remove_bookmark),
                     FancyToast.LENGTH_SHORT,
                     FancyToast.ERROR,
-                    com.moviedb.R.drawable.remove,
+                    R.drawable.remove,
                     false
                 ).show()
                 viewModel.setList(selected)
@@ -82,7 +82,7 @@ class BookmarkedFragment : Fragment() {
                     .addSwipeRightLabel(resources.getString(R.string.remove))
                     .setSwipeRightLabelColor(setTextColor())
                     .setSwipeRightLabelTextSize(TypedValue.COMPLEX_UNIT_SP, 20.0f)
-                    .addActionIcon(com.moviedb.R.drawable.remove).create().decorate()
+                    .addActionIcon(R.drawable.remove).create().decorate()
                 super.onChildDraw(
                     c,
                     recyclerView,
@@ -137,7 +137,7 @@ class BookmarkedFragment : Fragment() {
                     getString(R.string.remove_bookmark_all),
                     FancyToast.LENGTH_SHORT,
                     FancyToast.ERROR,
-                    com.moviedb.R.drawable.remove,
+                    R.drawable.remove,
                     false
                 ).show()
                 dialog.dismiss()
