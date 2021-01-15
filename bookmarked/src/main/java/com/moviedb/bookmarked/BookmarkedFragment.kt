@@ -17,11 +17,11 @@ import com.example.core.domain.Item
 import com.example.core.ui.BookmarkedAdapter
 import com.moviedb.bookmarked.databinding.FragmentBookmarkedBinding
 import com.moviedb.bookmarked.di.bookmarkedModule
+import com.shashank.sony.fancytoastlib.FancyToast
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
-import www.sanju.motiontoast.MotionToast
 
 @InternalCoroutinesApi
 class BookmarkedFragment : Fragment() {
@@ -47,14 +47,14 @@ class BookmarkedFragment : Fragment() {
                 viewModel.delete(
                     item
                 )
-                MotionToast.darkColorToast(
-                    requireActivity(),
-                    getString(com.moviedb.R.string.removed),
+                FancyToast.makeText(
+                    context,
                     getString(com.moviedb.R.string.remove_bookmark),
-                    MotionToast.TOAST_DELETE,
-                    MotionToast.GRAVITY_BOTTOM,
-                    MotionToast.LONG_DURATION, null
-                )
+                    FancyToast.LENGTH_SHORT,
+                    FancyToast.ERROR,
+                    com.moviedb.R.drawable.remove,
+                    false
+                ).show()
                 viewModel.setList(selected)
             }
 
@@ -82,7 +82,7 @@ class BookmarkedFragment : Fragment() {
                     .addSwipeRightLabel(resources.getString(R.string.remove))
                     .setSwipeRightLabelColor(setTextColor())
                     .setSwipeRightLabelTextSize(TypedValue.COMPLEX_UNIT_SP, 20.0f)
-                    .addActionIcon(R.drawable.remove).create().decorate()
+                    .addActionIcon(com.moviedb.R.drawable.remove).create().decorate()
                 super.onChildDraw(
                     c,
                     recyclerView,
@@ -132,14 +132,14 @@ class BookmarkedFragment : Fragment() {
             deleteDialog.setMessage(R.string.remove_title)
             deleteDialog.setPositiveButton(R.string.ok) { dialog, _ ->
                 viewModel.deleteAll()
-                MotionToast.darkColorToast(
-                    requireActivity(),
-                    getString(com.moviedb.R.string.removed),
+                FancyToast.makeText(
+                    context,
                     getString(R.string.remove_bookmark_all),
-                    MotionToast.TOAST_DELETE,
-                    MotionToast.GRAVITY_BOTTOM,
-                    MotionToast.LONG_DURATION, null
-                )
+                    FancyToast.LENGTH_SHORT,
+                    FancyToast.ERROR,
+                    com.moviedb.R.drawable.remove,
+                    false
+                ).show()
                 dialog.dismiss()
             }
             deleteDialog.setNegativeButton(R.string.cancel) { dialog, _ ->

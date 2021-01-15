@@ -1,6 +1,6 @@
 #Motion Toast
 #noinspection ShrinkerUnresolvedReference
--keep class MotionToast
+-keep class FancyToast
 
 -keep class * extends androidx.fragment.app.Fragment{}
 -keepnames class * extends java.io.Serializable

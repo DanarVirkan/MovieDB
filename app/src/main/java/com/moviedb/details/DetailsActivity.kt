@@ -15,11 +15,12 @@ import com.example.core.domain.Genre
 import com.example.core.domain.Item
 import com.example.core.utils.Constant.ITEM
 import com.example.core.utils.Constant.TYPE
+import com.google.android.material.snackbar.Snackbar
 import com.moviedb.R
 import com.moviedb.databinding.ActivityDetailsBinding
+import com.shashank.sony.fancytoastlib.FancyToast
 import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.android.viewmodel.ext.android.viewModel
-import www.sanju.motiontoast.MotionToast
 
 @InternalCoroutinesApi
 class DetailsActivity : AppCompatActivity() {
@@ -98,29 +99,30 @@ class DetailsActivity : AppCompatActivity() {
 
         viewModel.getError().observe(this, {
             if (it == true) {
-                MotionToast.darkColorToast(
+                FancyToast.makeText(
                     this,
-                    getString(R.string.error),
                     getString(R.string.net_err),
-                    MotionToast.TOAST_NO_INTERNET,
-                    MotionToast.GRAVITY_BOTTOM,
-                    MotionToast.LONG_DURATION, null
-                )
+                    FancyToast.LENGTH_SHORT,
+                    FancyToast.ERROR,
+                    R.drawable.no_internet,
+                    false
+                ).show()
                 Handler(Looper.getMainLooper()).postDelayed({
                     finish()
                 }, 1500L)
             }
         })
-    }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        finish()
     }
 
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
         super.onSaveInstanceState(outState, outPersistentState)
         outState.putBoolean("BOOL", true)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -136,27 +138,21 @@ class DetailsActivity : AppCompatActivity() {
         if (item.itemId == R.id.book && loaded) {
             if (!booked) {
                 viewModel.updateBookmark(itemDB, true)
-                item.setIcon(R.drawable.bookmarked)
-                MotionToast.darkColorToast(
-                    this,
-                    getString(R.string.success),
+                Snackbar.make(
+                    binding.snackParent,
                     getString(R.string.bookmarked),
-                    MotionToast.TOAST_SUCCESS,
-                    MotionToast.GRAVITY_BOTTOM,
-                    MotionToast.LONG_DURATION, null
-                )
+                    Snackbar.LENGTH_SHORT
+                ).setBackgroundTint(getColor(R.color.colorSuccess)).show()
+                item.setIcon(R.drawable.bookmarked)
                 booked = true
             } else {
                 viewModel.updateBookmark(itemDB, false)
-                item.setIcon(R.drawable.bookmark)
-                MotionToast.darkColorToast(
-                    this,
-                    getString(R.string.removed),
+                Snackbar.make(
+                    binding.snackParent,
                     getString(R.string.remove_bookmark),
-                    MotionToast.TOAST_DELETE,
-                    MotionToast.GRAVITY_BOTTOM,
-                    MotionToast.LONG_DURATION, null
-                )
+                    Snackbar.LENGTH_SHORT
+                ).setBackgroundTint(getColor(R.color.colorPrimary)).show()
+                item.setIcon(R.drawable.bookmark)
                 booked = false
             }
         }
